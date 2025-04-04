@@ -1,4 +1,5 @@
 """Queue tests."""
+
 from unittest.mock import AsyncMock, patch
 
 from homeassistant.core import HomeAssistant
@@ -55,11 +56,14 @@ async def test_store_remove(hass: HomeAssistant) -> None:
 async def test_store_store(hass: HomeAssistant, caplog: pytest.LogCaptureFixture) -> None:
     """Test the store store."""
 
-    with patch(
-        "custom_components.hacs.utils.store.HACSStore.async_save", return_value=AsyncMock()
-    ) as async_save_mock, patch(
-        "custom_components.hacs.utils.store.json_util.load_json",
-        return_value={"version": VERSION_STORAGE, "data": {}},
+    with (
+        patch(
+            "custom_components.hacs.utils.store.HACSStore.async_save", return_value=AsyncMock()
+        ) as async_save_mock,
+        patch(
+            "custom_components.hacs.utils.store.json_util.load_json",
+            return_value={"version": VERSION_STORAGE, "data": {}},
+        ),
     ):
         await async_save_to_store(hass, "test", {})
         assert not async_save_mock.called

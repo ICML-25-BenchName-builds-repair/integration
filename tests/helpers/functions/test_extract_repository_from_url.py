@@ -1,4 +1,5 @@
 """Tests for repository extraction."""
+
 from custom_components.hacs.utils import regex
 
 
