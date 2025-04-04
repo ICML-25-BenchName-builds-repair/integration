@@ -1,4 +1,5 @@
 """Set up some common test helper things."""
+
 # pytest: disable=protected-access
 import asyncio
 import logging

@@ -1,4 +1,5 @@
 """HacsConfiguration Test Suite."""
+
 # pylint: disable=missing-docstring
 import pytest
 

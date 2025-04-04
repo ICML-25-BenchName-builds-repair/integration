@@ -1,4 +1,5 @@
 """Configuration Test Suite: can install."""
+
 # pylint: disable=missing-docstring
 from awesomeversion import AwesomeVersion
 

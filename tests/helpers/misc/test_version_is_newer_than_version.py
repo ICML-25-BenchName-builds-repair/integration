@@ -1,4 +1,5 @@
 """Helpers: Misc: version_left_higher_or_equal_then_right."""
+
 # pylint: disable=missing-docstring
 from custom_components.hacs.utils.version import version_left_higher_or_equal_then_right
 

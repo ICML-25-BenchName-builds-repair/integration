@@ -1,4 +1,5 @@
 """Helpers: Information: get_integration_manifest."""
+
 # pylint: disable=missing-docstring
 import base64
 import json

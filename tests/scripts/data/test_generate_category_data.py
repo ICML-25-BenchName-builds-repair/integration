@@ -1,4 +1,5 @@
 """Test generate category data."""
+
 from base64 import b64encode
 import json
 from unittest.mock import ANY
