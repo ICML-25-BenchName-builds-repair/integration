@@ -1,4 +1,5 @@
 """Base HACS class."""
+
 from __future__ import annotations
 
 import asyncio
@@ -847,9 +848,11 @@ class HacsBase:
         self.log.info("Loading known repositories")
         await asyncio.gather(
             *[
-                self.async_get_category_repositories_experimental(category)
-                if self.configuration.experimental
-                else self.async_get_category_repositories(HacsCategory(category))
+                (
+                    self.async_get_category_repositories_experimental(category)
+                    if self.configuration.experimental
+                    else self.async_get_category_repositories(HacsCategory(category))
+                )
                 for category in self.common.categories or []
             ]
         )

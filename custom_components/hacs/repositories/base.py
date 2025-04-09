@@ -1,4 +1,5 @@
 """Repository."""
+
 from __future__ import annotations
 
 from asyncio import sleep
@@ -1343,12 +1344,13 @@ class HacsRepository:
             nolog=True,
         )
 
+        if not result:
+            return None
+
         return (
             result.decode(encoding="utf-8")
             .replace("<svg", "<disabled")
             .replace("</svg", "</disabled")
-            if result
-            else None
         )
 
     async def get_hacs_json(self, *, version: str, **kwargs) -> HacsManifest | None:

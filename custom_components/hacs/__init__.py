@@ -4,6 +4,7 @@ HACS gives you a powerful UI to handle downloads of all your custom needs.
 For more details about this integration, please refer to the documentation at
 https://hacs.xyz/
 """
+
 from __future__ import annotations
 
 import os
@@ -178,9 +179,11 @@ async def async_initialize_integration(
         else:
             await hass.config_entries.async_forward_entry_setups(
                 config_entry,
-                [Platform.SENSOR, Platform.UPDATE]
-                if hacs.configuration.experimental
-                else [Platform.SENSOR],
+                (
+                    [Platform.SENSOR, Platform.UPDATE]
+                    if hacs.configuration.experimental
+                    else [Platform.SENSOR]
+                ),
             )
 
         hacs.set_stage(HacsStage.SETUP)

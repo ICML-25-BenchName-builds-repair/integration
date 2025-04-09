@@ -1,4 +1,5 @@
 """HACS Configuration Schemas."""
+
 # pylint: disable=dangerous-default-value
 import voluptuous as vol
 
