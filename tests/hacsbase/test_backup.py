@@ -1,4 +1,5 @@
 """HACS Backup Test Suite."""
+
 # pylint: disable=missing-docstring
 import os
 

@@ -1,4 +1,5 @@
 """Various URL utils for HACS."""
+
 import re
 
 GIT_SHA = re.compile(r"^[a-fA-F0-9]{40}$")

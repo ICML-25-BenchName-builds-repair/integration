@@ -1,4 +1,5 @@
 """Data Test Suite."""
+
 from unittest.mock import patch
 
 import pytest
@@ -61,9 +62,12 @@ async def test_hacs_data_restore_write_not_new(hacs, caplog):
         else:
             raise ValueError(f"No mock for {key}")
 
-    with patch("os.path.exists", return_value=True), patch(
-        "custom_components.hacs.utils.data.async_load_from_store",
-        side_effect=_mocked_loads,
+    with (
+        patch("os.path.exists", return_value=True),
+        patch(
+            "custom_components.hacs.utils.data.async_load_from_store",
+            side_effect=_mocked_loads,
+        ),
     ):
         await data.restore()
 

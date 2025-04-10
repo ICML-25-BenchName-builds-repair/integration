@@ -1,4 +1,5 @@
 """HACS Sensor Test Suite."""
+
 # pylint: disable=missing-docstring
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.device_registry import DeviceEntryType

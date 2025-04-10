@@ -1,4 +1,5 @@
 """HACS Repository Data Test Suite."""
+
 # pylint: disable=missing-docstring
 from custom_components.hacs.base import RemovedRepository
 
