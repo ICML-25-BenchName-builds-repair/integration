@@ -26,7 +26,7 @@
             "url": "https://api.github.com/repos/hacs-test-org/integration-invalid/git/blobs/f484d249c660418515fb01c2b9662073663c242e"
         },
         {
-            "path": "custom_components/manfest.json",
+            "path": "custom_components/manifest.json",
             "mode": "040000",
             "type": "blob",
             "sha": "f484d249c660418515fb01c2b9662073663c242e",
