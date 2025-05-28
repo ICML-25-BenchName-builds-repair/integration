@@ -1,9 +1,10 @@
 """The QueueManager class."""
+
 from __future__ import annotations
 
 import asyncio
 import time
-from typing import Coroutine
+from collections.abc import Coroutine
 
 from homeassistant.core import HomeAssistant
 
