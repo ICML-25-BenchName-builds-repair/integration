@@ -1,4 +1,5 @@
 """Provide info to system health."""
+
 from aiogithubapi.common.const import BASE_API_URL
 from homeassistant.components import system_health
 from homeassistant.core import HomeAssistant, callback
