@@ -1,4 +1,4 @@
-from typing import Generator
+from collections.abc import Generator
 
 from homeassistant.components.websocket_api import DOMAIN as WEBSOCKET_DOMAIN
 from homeassistant.core import HomeAssistant

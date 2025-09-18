@@ -1,4 +1,5 @@
 """Sample datasets for testing."""
+
 # pylint: disable=invalid-name,missing-docstring
 
 from custom_components.hacs.enums import HacsCategory

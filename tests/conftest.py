@@ -1,13 +1,15 @@
 """Set up some common test helper things."""
+
 # pytest: disable=protected-access
 import asyncio
+from collections.abc import Generator
 from dataclasses import asdict
 from glob import iglob
 import json
 import logging
 import os
 from pathlib import Path
-from typing import Any, Generator
+from typing import Any
 from unittest.mock import AsyncMock, MagicMock, patch
 
 from aiogithubapi import GitHub, GitHubAPI

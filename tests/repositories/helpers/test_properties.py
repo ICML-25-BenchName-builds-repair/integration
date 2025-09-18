@@ -1,4 +1,5 @@
 """HACS Repository Helper properties."""
+
 # pylint: disable=missing-docstring
 from awesomeversion import AwesomeVersion
 

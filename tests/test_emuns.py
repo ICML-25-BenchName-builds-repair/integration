@@ -1,4 +1,4 @@
-""""Test enums."""
+""" "Test enums."""
 
 from custom_components.hacs.enums import RepositoryFile
 

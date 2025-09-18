@@ -1,4 +1,5 @@
 """Test the diagnostics module."""
+
 from unittest.mock import MagicMock, patch
 
 from aiogithubapi import GitHubException, GitHubRateLimitModel, GitHubResponseModel

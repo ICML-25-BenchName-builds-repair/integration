@@ -2,18 +2,25 @@
 from __future__ import annotations
 
 import asyncio
+from collections.abc import Iterable, Mapping
 from contextlib import contextmanager
 from contextvars import ContextVar
 import functools as ft
 import json as json_func
 import os
-from typing import Any, Iterable, Mapping
+from typing import Any
 from unittest.mock import AsyncMock, Mock, patch
 
 from aiohttp import ClientSession, ClientWebSocketResponse
 from aiohttp.typedefs import StrOrURL
 from awesomeversion import AwesomeVersion
-from homeassistant import auth, bootstrap, config_entries, core as ha, config as ha_config
+from homeassistant import (
+    auth,
+    bootstrap,
+    config as ha_config,
+    config_entries,
+    core as ha,
+)
 from homeassistant.auth import auth_store, models as auth_models
 from homeassistant.const import (
     EVENT_HOMEASSISTANT_CLOSE,
@@ -49,13 +56,13 @@ TOKEN = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 INSTANCES = []
 REQUEST_CONTEXT: ContextVar[pytest.FixtureRequest] = ContextVar("request_context", default=None)
 
-IGNORED_BASE_FILES = set([
-        "/config/automations.yaml",
-        "/config/configuration.yaml",
-        "/config/scenes.yaml",
-        "/config/scripts.yaml",
-        "/config/secrets.yaml",
-    ])
+IGNORED_BASE_FILES = {
+    "/config/automations.yaml",
+    "/config/configuration.yaml",
+    "/config/scenes.yaml",
+    "/config/scripts.yaml",
+    "/config/secrets.yaml",
+}
 
 
 def safe_json_dumps(data: dict | list) -> str:
@@ -281,18 +288,22 @@ def mock_storage(data=None):
         """Remove data."""
         data.pop(store.key, None)
 
-    with patch(
-        "homeassistant.helpers.storage.Store._async_load",
-        side_effect=mock_async_load,
-        autospec=True,
-    ), patch(
-        "homeassistant.helpers.storage.Store._write_data",
-        side_effect=mock_write_data,
-        autospec=True,
-    ), patch(
-        "homeassistant.helpers.storage.Store.async_remove",
-        side_effect=mock_remove,
-        autospec=True,
+    with (
+        patch(
+            "homeassistant.helpers.storage.Store._async_load",
+            side_effect=mock_async_load,
+            autospec=True,
+        ),
+        patch(
+            "homeassistant.helpers.storage.Store._write_data",
+            side_effect=mock_write_data,
+            autospec=True,
+        ),
+        patch(
+            "homeassistant.helpers.storage.Store.async_remove",
+            side_effect=mock_remove,
+            autospec=True,
+        ),
     ):
         yield data
 

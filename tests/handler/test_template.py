@@ -1,4 +1,5 @@
 """Template tests."""
+
 # pylint: disable=missing-docstring
 
 
